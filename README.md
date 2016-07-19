@@ -1,4 +1,4 @@
-# UICollectionView
+# UICollectionView的一些用法
 
 ===
 - 轮播显示
