@@ -26,7 +26,9 @@
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < 5; i++) {
+    NSUInteger count = [self.collectionView numberOfItemsInSection:0];
+    if (count > 5) count = 5;
+    for (int i = 0; i < count; i++) {
         UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
         attrs.transform = CGAffineTransformMakeRotation(i * arc4random_uniform(111));
         attrs.zIndex = [self.collectionView numberOfItemsInSection:0] - i;

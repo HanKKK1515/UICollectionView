@@ -54,7 +54,7 @@
     
     CGFloat centerX = self.collectionView.contentOffset.x + HLScreenW * 0.5; // 可视区域的center.x
     
-    // 获取所有item属性的拷贝
+    // 获取可视区域内item属性的拷贝
     NSArray *currentItemAttrb = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:currentFrame] copyItems:YES];
     for (UICollectionViewLayoutAttributes *itemAttris in currentItemAttrb) {
         CGFloat distance = ABS(centerX - itemAttris.center.x); // 每个item中心到可视区域的center.x的距离
@@ -64,7 +64,7 @@
         } else {
             scale = 1;
         }
-        itemAttris.transform3D = CATransform3DMakeScale(scale, scale, 0.0);
+        itemAttris.transform3D = CATransform3DMakeScale(scale, scale, scale);
     }
     return currentItemAttrb;
 }

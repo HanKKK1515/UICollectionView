@@ -1,8 +1,1 @@
-# UICollectionView的一些用法
-
-===
-- 轮播显示图片效果
-- 平铺显示图片效果
-- 叠加显示图片效果
-- 圆环显示图片效果
-- 瀑布流
+# UICollectionView

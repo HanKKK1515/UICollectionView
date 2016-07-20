@@ -18,6 +18,7 @@
 		E4BB7EED1D3E3CF800A7F880 /* HLCollectionViewOverlayLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7EEA1D3E3CF800A7F880 /* HLCollectionViewOverlayLayout.m */; };
 		E4BB7EF61D3E3D0800A7F880 /* HLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7EF41D3E3D0800A7F880 /* HLCollectionViewCell.m */; };
 		E4BB7EF71D3E3D0800A7F880 /* HLCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4BB7EF51D3E3D0800A7F880 /* HLCollectionViewCell.xib */; };
+		E4BB7F2F1D3E779000A7F880 /* HLCollectionViewWaterflowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BB7F2E1D3E779000A7F880 /* HLCollectionViewWaterflowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		E4BB7EF31D3E3D0800A7F880 /* HLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLCollectionViewCell.h; sourceTree = "<group>"; };
 		E4BB7EF41D3E3D0800A7F880 /* HLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLCollectionViewCell.m; sourceTree = "<group>"; };
 		E4BB7EF51D3E3D0800A7F880 /* HLCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HLCollectionViewCell.xib; sourceTree = "<group>"; };
+		E4BB7F2D1D3E779000A7F880 /* HLCollectionViewWaterflowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLCollectionViewWaterflowLayout.h; sourceTree = "<group>"; };
+		E4BB7F2E1D3E779000A7F880 /* HLCollectionViewWaterflowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLCollectionViewWaterflowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				E4BB7EE81D3E3CF800A7F880 /* HLCollectionViewCycloLayout.m */,
 				E4BB7EE91D3E3CF800A7F880 /* HLCollectionViewOverlayLayout.h */,
 				E4BB7EEA1D3E3CF800A7F880 /* HLCollectionViewOverlayLayout.m */,
+				E4BB7F2D1D3E779000A7F880 /* HLCollectionViewWaterflowLayout.h */,
+				E4BB7F2E1D3E779000A7F880 /* HLCollectionViewWaterflowLayout.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BB7F2F1D3E779000A7F880 /* HLCollectionViewWaterflowLayout.m in Sources */,
 				E4BB7EE31D3E3CEC00A7F880 /* ViewController.m in Sources */,
 				E4BB7ECE1D3E3C1500A7F880 /* AppDelegate.m in Sources */,
 				E4BB7EEB1D3E3CF800A7F880 /* HLCollectionLevelFlowLayout.m in Sources */,

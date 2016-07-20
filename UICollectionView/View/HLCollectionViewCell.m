@@ -9,7 +9,7 @@
 #import "HLCollectionViewCell.h"
 
 @interface HLCollectionViewCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (nonatomic, weak) IBOutlet UIImageView *iconView;
 @end
 
 @implementation HLCollectionViewCell

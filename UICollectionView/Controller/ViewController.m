@@ -11,8 +11,9 @@
 #import "HLCollectionLevelFlowLayout.h"
 #import "HLCollectionViewOverlayLayout.h"
 #import "HLCollectionViewCycloLayout.h"
+#import "HLCollectionViewWaterflowLayout.h"
 
-@interface ViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ViewController () <UICollectionViewDelegate, UICollectionViewDataSource, HLCollectionViewWaterflowLayoutDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *phone; // 用来存储图片名
 @end
@@ -54,7 +55,8 @@ static NSString *const ID = @"phone";
     UIButton *vertical = [self creatBtnWithtitle:@"竖直" tag:2];
     UIButton *overlay = [self creatBtnWithtitle:@"折叠" tag:3];
     UIButton *cyclo = [self creatBtnWithtitle:@"环形" tag:4];
-    NSArray *consH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[level]-10-[vertical(==level)]-10-[overlay(==level)]-10-[cyclo(==level)]-20-|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:@{@"level" : level, @"vertical" : vertical, @"overlay" : overlay, @"cyclo" : cyclo}];
+    UIButton *water = [self creatBtnWithtitle:@"瀑布流" tag:5];
+    NSArray *consH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[level]-10-[vertical(==level)]-10-[overlay(==level)]-10-[cyclo(==level)]-10-[water(==level)]-20-|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:@{@"level" : level, @"vertical" : vertical, @"overlay" : overlay, @"cyclo" : cyclo, @"water" : water}];
     NSArray *consV = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-40-[level(35)]" options:NSLayoutFormatAlignmentMask metrics:nil views:@{@"level" : level}];
     [self.view addConstraints:consH];
     [self.view addConstraints:consV];
@@ -65,6 +67,7 @@ static NSString *const ID = @"phone";
  */
 - (UIButton *)creatBtnWithtitle:(NSString *)title tag:(int)tag {
     UIButton *btn = [[UIButton alloc] init];
+    btn.layer.cornerRadius = 7;
     btn.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:btn];
     [btn setTitle:title forState:UIControlStateNormal];
@@ -75,6 +78,8 @@ static NSString *const ID = @"phone";
 }
 
 - (void)clickBtn:(UIButton *)btn {
+    if (!self.phone.count) return;
+    
     if (btn.tag == 1) {
         [self.collectionView setCollectionViewLayout:[[HLCollectionLevelFlowLayout alloc] init] animated:YES];
     } else if (btn.tag == 2) {
@@ -90,7 +95,21 @@ static NSString *const ID = @"phone";
         [self.collectionView setCollectionViewLayout:[[HLCollectionViewOverlayLayout alloc] init] animated:YES];
     } else if (btn.tag == 4) {
         [self.collectionView setCollectionViewLayout:[[HLCollectionViewCycloLayout alloc] init] animated:YES];
+    } else if (btn.tag == 5) {
+        HLCollectionViewWaterflowLayout *waterLayout = [[HLCollectionViewWaterflowLayout alloc] init];
+        waterLayout.delegate = self;
+        waterLayout.column = 3;
+        waterLayout.colMargin = 10;
+        waterLayout.rowMargin = 10;
+        waterLayout.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        [self.collectionView setCollectionViewLayout:waterLayout animated:YES];
     }
+}
+
+#pragma mark - HLCollectionViewWaterflowLayout的代理方法
+- (CGFloat)waterflowLayout:(HLCollectionViewWaterflowLayout *)waterflow heightWithWidth:(CGFloat)width indexPath:(NSIndexPath *)indexPath {
+    
+    return width + ((indexPath.item * 500) % 199);  // 模拟不同高度
 }
 
 #pragma mark - UICollectionView的代理方法
