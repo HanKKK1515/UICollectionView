@@ -20,13 +20,18 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     CGFloat itemW = 70;
-    CGFloat itemY = itemW;
-    attrs.size = CGSizeMake(itemW, itemY);
+    CGFloat itemH = itemW;
+    attrs.size = CGSizeMake(itemW, itemH);
     
     CGFloat angle = M_PI * 2 / [self.collectionView numberOfItemsInSection:0]; // 计算图片的中点位于圆上的角度
     CGFloat distance = 80; // 圆的半径
     CGPoint center = CGPointMake(self.collectionView.frame.size.width * 0.5, self.collectionView.frame.size.height * 0.5); // 圆的中心
-    attrs.center = CGPointMake(center.x + distance * cosf(angle * indexPath.item), center.y + distance * sinf(angle * indexPath.item));
+    if ([self.collectionView numberOfItemsInSection:0] ==1) {
+        attrs.center = center; // 当只有一个cell时中心设置在中点
+    } else {
+        attrs.center = CGPointMake(center.x + distance * cosf(angle * indexPath.item), center.y + distance * sinf(angle * indexPath.item));
+    }
+    
     return attrs;
 }
 

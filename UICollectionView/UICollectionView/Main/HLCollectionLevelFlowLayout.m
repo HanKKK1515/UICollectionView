@@ -15,8 +15,8 @@
 - (void)prepareLayout {
     [super prepareLayout];
     CGFloat itemW = 100;
-    CGFloat itemY = itemW;
-    self.itemSize = CGSizeMake(itemW, itemY);
+    CGFloat itemH = itemW;
+    self.itemSize = CGSizeMake(itemW, itemH);
     self.minimumInteritemSpacing = 200;
     self.minimumLineSpacing = 40;
     CGFloat margin = (self.collectionView.frame.size.width - itemW) * 0.5;

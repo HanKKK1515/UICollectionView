@@ -9,9 +9,7 @@
 #import "HLCollectionViewWaterflowLayout.h"
 
 @interface HLCollectionViewWaterflowLayout ()
-
 @property (nonatomic, strong) NSMutableDictionary *maxColumnY; // 存储每一列的：最大y值＋行距
-
 @end
 
 @implementation HLCollectionViewWaterflowLayout
@@ -70,7 +68,6 @@
     }
     return self;
 }
-
 
 /**
  *  初始化最大y值

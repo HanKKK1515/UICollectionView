@@ -17,8 +17,8 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     CGFloat itemW = 100;
-    CGFloat itemY = itemW;
-    attrs.size = CGSizeMake(itemW, itemY);
+    CGFloat itemH = itemW;
+    attrs.size = CGSizeMake(itemW, itemH);
     attrs.center = CGPointMake(self.collectionView.frame.size.width * 0.5, self.collectionView.frame.size.height * 0.5);
     if (indexPath.item >= 5) attrs.hidden = YES;
     return attrs;
